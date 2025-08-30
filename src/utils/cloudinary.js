@@ -24,14 +24,14 @@ const uploadOnCloudinary = async (localFilePath) => {
   }
 };
 
-cloudinary.v2.uploader.upload(
-  "https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
-  {
-    public_id: "shoes",
-  },
-  function (error, result) {
-    console.log(result);
-  }
-);
+// cloudinary.v2.uploader.upload(
+//   "https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
+//   {
+//     public_id: "shoes",
+//   },
+//   function (error, result) {
+//     console.log(result);
+//   }
+// );
 
 export { uploadOnCloudinary };
