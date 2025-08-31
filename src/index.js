@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
+// dotenv.config({ quiet: true });
+dotenv.config({
+  path: "./.env",
+});
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
-
-dotenv.config({ quiet: true });
 
 connectDB()
   .then(() => {

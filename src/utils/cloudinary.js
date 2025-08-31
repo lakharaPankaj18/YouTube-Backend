@@ -1,5 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 
 // Configuration
 cloudinary.config({
@@ -16,22 +18,11 @@ const uploadOnCloudinary = async (localFilePath) => {
       resource_type: "auto",
     });
     // file uploaded successfully
-    console.log("file is uploaded on cloudinary", response.url);
+    fs.unlinkSync(localFilePath);
     return response;
   } catch (error) {
-    fs.unlinkSync(localFilePath); // remove locally saved temporary file as the upload operation got failed
+    fs.unlinkSync(localFilePath);
     return null;
   }
 };
-
-// cloudinary.v2.uploader.upload(
-//   "https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
-//   {
-//     public_id: "shoes",
-//   },
-//   function (error, result) {
-//     console.log(result);
-//   }
-// );
-
 export { uploadOnCloudinary };
